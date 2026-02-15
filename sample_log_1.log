@@ -1,0 +1,528 @@
+
+*** Running vivado
+    with args -log k_means_clustering.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source k_means_clustering.tcl
+
+
+
+****** Vivado v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Sat Sep 20 22:08:07 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source k_means_clustering.tcl -notrace
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 493.543 ; gain = 214.230
+Command: read_checkpoint -auto_incremental -incremental D:/Verilog/k_means_clustering/k_means_clustering.srcs/utils_1/imports/synth_1/k_means_clustering.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from D:/Verilog/k_means_clustering/k_means_clustering.srcs/utils_1/imports/synth_1/k_means_clustering.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top k_means_clustering -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 29048
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1000.348 ; gain = 494.715
+---------------------------------------------------------------------------------
+INFO: [Synth 8-11241] undeclared symbol 'cluster_id_flat', assumed default net type 'wire' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:115]
+INFO: [Synth 8-6157] synthesizing module 'k_means_clustering' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:3]
+INFO: [Synth 8-6157] synthesizing module 'distance_unit' [D:/Verilog/distance_unit/distance_unit.srcs/sources_1/new/distance_unit.v:5]
+	Parameter COORD_W bound to: 32 - type: integer 
+	Parameter DIST_W bound to: 34 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'distance_unit' (0#1) [D:/Verilog/distance_unit/distance_unit.srcs/sources_1/new/distance_unit.v:5]
+INFO: [Synth 8-6157] synthesizing module 'min_finder' [D:/Verilog/min_finder/min_finder.srcs/sources_1/new/min_finder.v:32]
+	Parameter DIST_W bound to: 34 - type: integer 
+	Parameter K bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'min_finder' (0#1) [D:/Verilog/min_finder/min_finder.srcs/sources_1/new/min_finder.v:32]
+INFO: [Synth 8-6157] synthesizing module 'cluster_assign' [D:/Verilog/cluster_assign/cluster_assign.srcs/sources_1/new/cluster_assign.v:6]
+	Parameter N bound to: 16 - type: integer 
+	Parameter K bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cluster_assign' (0#1) [D:/Verilog/cluster_assign/cluster_assign.srcs/sources_1/new/cluster_assign.v:6]
+WARNING: [Synth 8-689] width (32) of port connection 'min_index' does not match port width (2) of module 'cluster_assign' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:114]
+WARNING: [Synth 8-689] width (1) of port connection 'cluster_id_flat' does not match port width (32) of module 'cluster_assign' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:115]
+INFO: [Synth 8-6157] synthesizing module 'centroid_update' [D:/Verilog/centroid_update/centroid_update.srcs/sources_1/new/centroid_update.v:3]
+	Parameter DATA_W bound to: 32 - type: integer 
+	Parameter K bound to: 4 - type: integer 
+	Parameter N bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'centroid_update' (0#1) [D:/Verilog/centroid_update/centroid_update.srcs/sources_1/new/centroid_update.v:3]
+WARNING: [Synth 8-689] width (1) of port connection 'cluster_id_flat' does not match port width (32) of module 'centroid_update' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:133]
+INFO: [Synth 8-6157] synthesizing module 'stop_condition' [D:/Verilog/stop_condition/stop_condition.srcs/sources_1/new/stop_condition.v:3]
+	Parameter DATA_W bound to: 32 - type: integer 
+	Parameter K bound to: 4 - type: integer 
+	Parameter MAX_ITER bound to: 10 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'stop_condition' (0#1) [D:/Verilog/stop_condition/stop_condition.srcs/sources_1/new/stop_condition.v:3]
+INFO: [Synth 8-6157] synthesizing module 'axi4lite_slave' [D:/Verilog/axi4lite_slave/axi4lite_slave.srcs/sources_1/new/axi4lite_slave.v:13]
+	Parameter ADDR_WIDTH bound to: 6 - type: integer 
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+	Parameter MEM_DEPTH bound to: 20 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'axi4lite_slave' (0#1) [D:/Verilog/axi4lite_slave/axi4lite_slave.srcs/sources_1/new/axi4lite_slave.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'k_means_clustering' (0#1) [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:3]
+WARNING: [Synth 8-3848] Net dist_arr[0] in module/entity min_finder does not have driver. [D:/Verilog/min_finder/min_finder.srcs/sources_1/new/min_finder.v:42]
+WARNING: [Synth 8-6014] Unused sequential element idx_reg was removed.  [D:/Verilog/axi4lite_slave/axi4lite_slave.srcs/sources_1/new/axi4lite_slave.v:111]
+WARNING: [Synth 8-6014] Unused sequential element idx_reg was removed.  [D:/Verilog/axi4lite_slave/axi4lite_slave.srcs/sources_1/new/axi4lite_slave.v:145]
+WARNING: [Synth 8-6014] Unused sequential element iter_count_reg was removed.  [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:167]
+WARNING: [Synth 8-3848] Net axi_regfile[16] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[17] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[18] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[19] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[0] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[1] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[2] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[3] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[4] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[5] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[6] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[7] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[8] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[9] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[10] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[11] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[12] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[13] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[14] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_regfile[15] in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:221]
+WARNING: [Synth 8-3848] Net axi_rready in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:186]
+WARNING: [Synth 8-3848] Net axi_awvalid in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:186]
+WARNING: [Synth 8-3848] Net axi_wvalid in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:186]
+WARNING: [Synth 8-3848] Net axi_bready in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:186]
+WARNING: [Synth 8-3848] Net axi_arvalid in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:186]
+WARNING: [Synth 8-3848] Net axi_awaddr in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:187]
+WARNING: [Synth 8-3848] Net axi_araddr in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:187]
+WARNING: [Synth 8-3848] Net axi_wdata in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:188]
+WARNING: [Synth 8-3848] Net axi_wstrb in module/entity k_means_clustering does not have driver. [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:189]
+WARNING: [Synth 8-7129] Port ARADDR[1] in module axi4lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ARADDR[0] in module axi4lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[33] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[32] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[31] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[30] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[29] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[28] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[27] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[26] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[25] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[24] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[23] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[22] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[21] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[20] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[19] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[18] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[17] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[16] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[15] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[14] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[13] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[12] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[11] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[10] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[9] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[8] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[7] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[6] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[5] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[4] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[3] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[2] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[1] in module min_finder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dist_flat[0] in module min_finder is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1124.004 ; gain = 618.371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1124.004 ; gain = 618.371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1124.004 ; gain = 618.371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1129.285 ; gain = 623.652
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   37 Bit       Adders := 32    
+	   2 Input   33 Bit       Adders := 64    
+	   3 Input   32 Bit       Adders := 128   
+	   2 Input    5 Bit       Adders := 16    
+	   2 Input    4 Bit       Adders := 2     
++---Registers : 
+	               37 Bit    Registers := 8     
+	               32 Bit    Registers := 42    
+	                8 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 4     
+	                4 Bit    Registers := 2     
+	                2 Bit    Registers := 18    
+	                1 Bit    Registers := 11    
++---RAMs : 
+	              640 Bit	(20 X 32 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   37 Bit        Muxes := 128   
+	   4 Input   37 Bit        Muxes := 32    
+	   2 Input   34 Bit        Muxes := 64    
+	   2 Input   32 Bit        Muxes := 256   
+	   2 Input    5 Bit        Muxes := 64    
+	   4 Input    5 Bit        Muxes := 16    
+	   2 Input    4 Bit        Muxes := 2     
+	   3 Input    2 Bit        Muxes := 16    
+	   2 Input    2 Bit        Muxes := 16    
+	   2 Input    1 Bit        Muxes := 22    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][31]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][30]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][29]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][28]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][27]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][26]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][25]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][24]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][23]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][22]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][21]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][20]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][19]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][18]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][17]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][16]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][15]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][14]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][13]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][12]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][11]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][10]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][9]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][8]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][7]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][6]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][5]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][4]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][3]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][2]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][1]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[3][0]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][31]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][30]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][29]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][28]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][27]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][26]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][25]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][24]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][23]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][22]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][21]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][20]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][19]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][18]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][17]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][16]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][15]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/old_cy_reg[2][14]/Q' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Verilog/k_means_clustering/k_means_clustering.srcs/sources_1/new/k_means_clustering.v:228]
+INFO: [Common 17-14] Message 'Synth 8-6858' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:31 ; elapsed = 00:02:07 . Memory (MB): peak = 1403.523 ; gain = 897.891
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:31 ; elapsed = 00:02:07 . Memory (MB): peak = 1403.523 ; gain = 897.891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:31 ; elapsed = 00:02:07 . Memory (MB): peak = 1403.523 ; gain = 897.891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:45 ; elapsed = 00:02:21 . Memory (MB): peak = 1560.691 ; gain = 1055.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:45 ; elapsed = 00:02:21 . Memory (MB): peak = 1560.691 ; gain = 1055.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:45 ; elapsed = 00:02:22 . Memory (MB): peak = 1560.691 ; gain = 1055.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:45 ; elapsed = 00:02:22 . Memory (MB): peak = 1560.691 ; gain = 1055.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:45 ; elapsed = 00:02:22 . Memory (MB): peak = 1560.691 ; gain = 1055.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:45 ; elapsed = 00:02:22 . Memory (MB): peak = 1560.691 ; gain = 1055.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     6|
+|3     |LUT1   |    23|
+|4     |LUT2   |     2|
+|5     |LUT3   |     5|
+|6     |LUT4   |     3|
+|7     |LUT5   |     2|
+|8     |LUT6   |     1|
+|9     |FDCE   |    14|
+|10    |IBUF   |     3|
+|11    |OBUF   |     1|
++------+-------+------+
+
+Report Instance Areas: 
++------+-----------------------+----------------+------+
+|      |Instance               |Module          |Cells |
++------+-----------------------+----------------+------+
+|1     |top                    |                |    61|
+|2     |  centroid_update_inst |centroid_update |    27|
+|3     |  cluster_assign_inst  |cluster_assign  |    11|
+|4     |  stop_inst            |stop_condition  |    18|
++------+-----------------------+----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:45 ; elapsed = 00:02:22 . Memory (MB): peak = 1560.691 ; gain = 1055.059
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 768 critical warnings and 73 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:45 ; elapsed = 00:02:22 . Memory (MB): peak = 1560.691 ; gain = 1055.059
+Synthesis Optimization Complete : Time (s): cpu = 00:01:45 ; elapsed = 00:02:22 . Memory (MB): peak = 1560.691 ; gain = 1055.059
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1573.746 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1685.750 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 48dc96c1
+INFO: [Common 17-83] Releasing license: Synthesis
+33 Infos, 73 Warnings, 200 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:51 ; elapsed = 00:02:30 . Memory (MB): peak = 1685.750 ; gain = 1187.152
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1685.750 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/Verilog/k_means_clustering/k_means_clustering.runs/synth_1/k_means_clustering.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file k_means_clustering_utilization_synth.rpt -pb k_means_clustering_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 20 22:11:07 2025...

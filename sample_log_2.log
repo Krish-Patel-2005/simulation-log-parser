@@ -1,0 +1,21 @@
+INFO: Starting simulation at 14:02:11
+
+Running test: alu_add
+INFO: Applying stimulus
+ERROR: mismatch detected at cycle 45
+Simulation completed with errors
+
+Running test: alu_sub
+INFO: Applying stimulus
+Simulation completed successfully
+
+Running test: alu_mul
+INFO: Applying stimulus
+FATAL: segmentation fault (core dumped)
+
+Running test: alu_div
+INFO: Applying stimulus
+INFO: still running...
+(no completion line)
+
+INFO: Simulation finished at 14:07:55

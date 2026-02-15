@@ -139,7 +139,7 @@ def classify_run(run):
 # -------------------------
 
 def main():
-    runs = parse_log("log_a.log")
+    runs = parse_log("log file")
 
     for r in runs:
         outcome = classify_run(r)

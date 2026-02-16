@@ -52,4 +52,4 @@ Priority-based classification:
 ## Usage
 
 ```bash
-python log_parser.py
+python3 log_parser.py
